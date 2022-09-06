@@ -1,0 +1,171 @@
+from machine import Pin as pin
+from utime import sleep as pausa, sleep_ms as pausaa, sleep_us as pausaaa
+led1=pin(15, pin.OUT)
+led2=pin(2, pin.OUT)
+led3=pin(4, pin.OUT)
+led4=pin(16, pin.OUT)
+led5=pin(17, pin.OUT)
+led6=pin(18, pin.OUT)
+led7=pin(19, pin.OUT)
+led8=pin(21, pin.OUT)
+led9=pin(3, pin.OUT)
+led10=pin(1, pin.OUT)
+boton1 = pin(13,pin.IN)
+boton2 = pin(12,pin.IN)
+boton3 = pin(14,pin.IN)
+boton4 = pin(27,pin.IN)
+def print_led(a, b, c, d, e, f, g, h, i, j):
+    led1.value(a)
+    led2.value(b)
+    led3.value(c)
+    led4.value(d)
+    led5.value(e)
+    led6.value(f)
+    led7.value(g)
+    led8.value(h)
+    led9.value(i)
+    led10.value(j)
+    pausaa(50)
+    pausa = 1
+puerto=[15, 2, 4, 16, 17, 18, 19, 21, 3, 1]
+ledt = [led1, led2, led3, led4, led5, led6, led7, led8, led9, led10]
+ledta = [led2, led1, led5, led3, led9, led8, led10, led7, led9, led4]
+ledte = [led10, led8, led4, led3, led9, led5, led6, led1, led2, led7]
+ledti = [led5, led1, led9, led10, led7, led6, led2, led4, led3, led8]
+ledto = [led8, led2, led7, led4, led5, led3, led6, led9, led1, led10]
+ledtu = [led4, led2, led5, led1, led10, led3, led8, led9, led7, led6]
+n=100    
+while True:
+
+    if (boton1.value()):
+        for i in ledt:
+            for j in range (2):
+                 i.value(not i.value())
+                 pausaa(n)
+            e = n + 100         
+    if (boton2.value()):
+        for i in reversed (ledt):
+             for j in range (2):
+                 i.value(not i.value())
+                 pausaa(n)
+             e = n - 100     
+    if (boton3.value()):
+            print_led(0,0,0,0,1,1,0,0,0,0)
+            print_led(0,0,0,1,0,0,1,0,0,0)
+            print_led(0,0,1,0,0,0,0,1,0,0)
+            print_led(0,1,0,0,0,0,0,0,1,0)
+            print_led(1,0,0,0,0,0,0,0,0,1)
+            print_led(0,1,0,0,0,0,0,0,1,0)
+            print_led(0,0,1,0,0,0,0,1,0,0)
+            print_led(0,0,0,1,0,0,1,0,0,0)
+            print_led(0,0,0,0,1,1,0,0,0,0)
+            print_led(0,0,0,0,0,0,0,0,0,0)
+    if (boton4.value()):
+            led1.value(1)
+            (pausaaa)
+            led1.value(0)
+            led2.value(1)
+            (pausaa)
+            led2.value(0)
+            led3.value(1)
+            (pausaaa)
+            led3.value(0)
+            led4.value(1)
+            (pausaaa)
+            led4.value(0)
+            led5.value(1)
+            (pausaa)
+            led5.value(0)
+            led6.value(1)
+            (pausaaa)
+            led6.value(0)
+            led7.value(1)
+            (pausaaa)
+            led7.value(0)
+            led8.value(1)
+            (pausaaa)
+            led8.value(0)
+            led9.value(1)
+            (pausaa)
+            led9.value(0)
+            led10.value(1)
+            (pausaaa)
+            led10.value(0)
+            (pausaaa)
+    if (boton1.value() and boton2.value()):
+            print_led(1,0,0,0,0,1,0,0,0,0)
+            print_led(0,1,0,0,0,0,1,0,0,0)
+            print_led(0,0,1,0,0,0,0,1,0,0)
+            print_led(0,0,0,1,0,0,0,0,1,0)
+            print_led(1,0,0,0,1,0,0,0,0,1)
+            print_led(0,1,0,0,0,1,0,0,0,0)
+            print_led(0,0,1,0,0,0,1,0,0,0)
+            print_led(0,0,0,1,0,0,0,1,0,0)
+            print_led(0,0,0,0,1,0,0,0,1,0)
+            print_led(0,0,0,0,0,0,0,0,0,0)
+
+    if (boton3.value() and boton4.value()):
+            print_led(1,0,0,0,0,1,0,0,0,0)
+            print_led(0,1,0,0,0,0,1,0,0,0)
+            print_led(0,0,1,0,0,0,0,1,0,0)
+            print_led(0,0,0,1,0,0,0,0,1,0)
+            print_led(1,0,0,0,1,0,0,0,0,1)
+            print_led(0,1,0,0,0,1,0,0,0,0)
+            print_led(0,0,1,0,0,0,1,0,0,0)
+            print_led(0,0,0,1,0,0,0,1,0,0)
+            print_led(0,0,0,0,1,0,0,0,1,0)
+            print_led(0,0,0,0,0,0,0,0,0,0)
+    
+     
+    if (boton2.value() and boton3.value()):  
+            for i in ledta:
+                for j in range (8):
+                    i.value(not i.value())
+                    pausaa(e)
+    if (boton1.value() and boton4.value()):   
+            for i in reversed (ledta):
+                for j in range (10):
+                    i.value(not i.value())
+                    pausaa(e)
+
+    if (botoncito1.value() and botoncito3.value()):
+            for i in ledte:
+                for j in range (16):
+                    i.value(not i.value())
+                    pausaa(e)
+        
+    if (boton2.value() and boton4.value()):
+            for i in reversed (ledte):
+                for j in range (7):
+                    i.value(not i.value())
+                    pausaa(e)
+
+    if (boton1.value() and boton2.value() and boton4.value()):
+            for i in ledti:
+                for j in range (16):
+                    i.value(not i.value())
+                    pausaa(e)
+
+    if (boton1.value() and boton2.value() and boton3.value()):
+            for i in reversed (ledti):
+                for j in range (6):
+                    i.value(not i.value())
+                    pausaa(e)
+
+    if (boton2.value() and boton3.value() and boton4.value()):
+            for i in ledto:
+                for j in range (3):
+                    i.value(not i.value())
+                    pausaa(e)
+
+    if (boton1.value() and botoncito3.value() and boton4.value()):
+            for i in reversed (ledti):
+                for j in range (4):
+                    i.value(not i.value())
+                    pausaa(e)
+
+    if (boton1.value() and boton2.value() and boton3.value() and boton4.value()):
+            for i in ledtu:
+                for j in range (5):
+                    i.value(not i.value())
+                    pausaa(e)
